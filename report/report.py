@@ -13,10 +13,8 @@ import datetime
 import os
 import re
 from collections import defaultdict
-from lxml import etree
 from jinja2 import Template
-from sys import exit
-
+from lxml import etree
 
 class ITestReport(object):
     """
@@ -25,7 +23,6 @@ class ITestReport(object):
     This class manages the Integration Test Report, it creates all the required
     methods to create test cases and reporting on HTML.
     """
-
     def __init__(self, swc='', swc_ver='', revision='', tester='', hw_version=''):
         self.data_dic = {
             'swc_name': swc,
@@ -110,7 +107,7 @@ class ITestReport(object):
         self._build_summary()
 
         xml = template.render(**self.data_dic)
-        xslt = etree.parse(os.path.join(os.path.dirname(os.path.realpath(__file__)), 'ITestStyle.xsl'))
+        xslt = etree.parse(os.path.join(current_dir, 'ITestStyle.xsl'))
 
         transform = etree.XSLT(xslt)
         new_dom = transform(etree.fromstring(xml))
@@ -160,6 +157,7 @@ if __name__ == "__main__":
     test.add_test_step('Shut down and receive one frame','OK','A PCAN Channel has not been initialized yet or the initialization process has failed')
     test.add_manual_test_step('receive only one type of frame')
 
+    # Compute the path to the report HTML
     current_dir = os.path.dirname(os.path.abspath(__file__))
     report_path = os.path.join(current_dir, 'unit_test.html')
 
