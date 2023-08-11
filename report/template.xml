@@ -1,0 +1,43 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="ITestStyle.xsl"?>
+<TEST_REPORT>
+    <GENERAL_INFORMATION>
+        <SWC>{{ swc_name }}</SWC>
+        <SWC_VERSION>{{ version }}</SWC_VERSION>
+        <DATE_TIME>{{ date }}</DATE_TIME>
+        <REPO_REVISION>{{revision}}</REPO_REVISION>
+        <AUTHOR>{{author}}</AUTHOR>
+        <HW_VERSION>{{hw_version}}</HW_VERSION>
+    </GENERAL_INFORMATION>
+    <SUMMARY>
+        {%- for test_case in summary_test_cases %}
+        <TEST_CASE>
+            <NAME><a href="#test_case_{{ test_case.NAME }}">{{ test_case.NAME }}</a></NAME>
+            <TEST_OK>{{ test_case.TEST_OK }}</TEST_OK>
+            <TEST_KO>{{ test_case.TEST_KO }}</TEST_KO>
+            <NOT_TESTED>{{ test_case.NOT_TESTED }}</NOT_TESTED>
+        </TEST_CASE>
+        {%- endfor %}
+        <TOTAL_RUN_TEST>{{ summary.TOTAL_RUN_TEST }}</TOTAL_RUN_TEST>
+        <TOTAL_TEST_OK>{{ summary.TOTAL_TEST_OK }}</TOTAL_TEST_OK>
+        <TOTAL_TEST_KO>{{ summary.TOTAL_TEST_KO }}</TOTAL_TEST_KO>
+        <TOTAL_NOT_TESTED>{{ summary.TOTAL_NOT_TESTED }}</TOTAL_NOT_TESTED>
+    </SUMMARY>
+    {%- for test_case in test_cases %}
+    <TEST_CASE id="{{ test_case.id }}">
+        <NAME>{{ test_case.NAME }}</NAME>
+        <DESCRIPTION>{{ test_case.DESCRIPTION }}</DESCRIPTION>
+        <REQUIREMENT>{{ test_case.REQUIREMENT }}</REQUIREMENT>
+        <INITIAL_CONDITIONS>{{ test_case.INITIAL_CONDITIONS }}</INITIAL_CONDITIONS>
+        <ACTIONS>{{ test_case.ACTIONS }}</ACTIONS>
+        <EVAL_CRITERIA>{{ test_case.EVAL_CRITERIA }}</EVAL_CRITERIA>
+        {%- for test_step in test_case.TEST_STEP %}
+        <TEST_STEP>
+            <NAME>{{ test_step.NAME }}</NAME>
+            <RESULT>{{ test_step.RESULT }}</RESULT>
+            <COMMENTS>{{ test_step.COMMENTS }}</COMMENTS>
+        </TEST_STEP>
+        {%- endfor %}
+    </TEST_CASE>
+    {%- endfor %}
+</TEST_REPORT>
