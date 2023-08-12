@@ -1,9 +1,12 @@
 """
 Trace32 Lauterbach Library
 
-@author: jgonzalezsosa@one.ai
-@version: 1.1.0
-@change: 
+This library is part of ITest framework.
+
+@author:  Jarold Gonzalez
+@version: 1.0.0
+
+@change:  JGonzalez - 1.0.0 - Integration test report hith hyperlinks
 """
 
 # -------------------- [IMPORTS FILES] ----------------------------------------
@@ -653,9 +656,10 @@ class T32(object):
         self.cmd('QUIT')
 
 
+if __name__ == "__main__":
+    ''' If the script is executed, it will run the report and validate the library '''
 
+    dbg = t32.connect(node='localhost', port=20000, protocol="TCP", timeout=10.0)
 
-dbg = t32.connect(node='localhost', port=20000, protocol="TCP", timeout=10.0)
-
-print (dbg)
+    print (dbg)
 

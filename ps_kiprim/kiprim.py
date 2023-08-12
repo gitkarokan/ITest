@@ -3,7 +3,7 @@ Kiprim DC310S Power Supply Library.
 
 This library is part of ONE ITest framework.
 
-@author:  jgonzalezsosa@one.com
+@author:  Jarold Gonzalez
 @version: 1.0.0
 
 @change: JGonzalez - 6/21/23 - Draft initial control power supply

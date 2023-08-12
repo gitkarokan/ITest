@@ -1,12 +1,12 @@
 """
 Report Library.
 
-This library is part of ONE ITest framework.
+This library is part of ITest framework.
 
-@author:  jgonzalezsosa@one.com
+@author:  Jarold Gonzalez
 @version: 1.0.0
 
-@change:  jgonzalezsosa - 1.0.0 - Integration test report hith hyperlinks
+@change:  JGonzalez - 1.0.0 - Integration test report hith hyperlinks
 """
 
 import datetime
